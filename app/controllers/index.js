@@ -26,7 +26,7 @@ function loginUser(){
 	    // Set this property before calling the `open` method. 
 	    securityManager: securityManager
 	});
-	httpClient.open("GET","http://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp")
+	httpClient.open("GET","http://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp");
 	httpClient.send();
 
 }
