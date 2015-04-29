@@ -1,0 +1,74 @@
+".container": {
+	backgroundColor: "white",
+	layout : 'vertical'
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+},
+'#txtEmail' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 50,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Email Address'
+},
+'#txtFname' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'First Name'
+},
+'#txtLname' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Last Name'
+},
+
+'#txtNewUserName' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Username'
+},
+'#txtNewPwd' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Password',
+	passwordMask : true
+},
+'#txtNewPwdVerify' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 10,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Password',
+	passwordMask : true
+},
+'#loginBtn' : {
+	width : 200,
+	height : 30,
+	title : 'Create Login',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+},
+'#backButton' : {
+	width : 200,
+	height : 30,
+	title : 'Go Back',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+}

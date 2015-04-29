@@ -1,5 +1,9 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+		<TextField id="txtUserName"></TextField>
+		<TextField id="txtPwd"></TextField>
+		<Button id="loginBtn" onClick="loginUser"></Button>
+		<Button id="createBtn" onClick="openNewUser"></Button>
+		<Button id="resetBtn" onClick="resetUser"></Button>
 	</Window>
 </Alloy>

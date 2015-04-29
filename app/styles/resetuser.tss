@@ -1,0 +1,31 @@
+".container": {
+	backgroundColor: "white",
+	layout : 'vertical'
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+},
+'#txtEmail' : {
+	width : 200,
+	height : 40,
+	borderRadius : 10,
+	top : 50,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Email Address'
+},
+'#submitBtn' : {
+	width : 200,
+	height : 30,
+	title : 'Submit',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+},
+'#backButton' : {
+	width : 200,
+	height : 30,
+	title : 'Go Back',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+}

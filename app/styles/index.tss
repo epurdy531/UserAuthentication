@@ -1,15 +1,47 @@
 ".container": {
-	backgroundColor:"white"
-}
-
+	backgroundColor: "white",
+	layout : 'vertical'
+},
 "Label": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
 	color: "#000"
-}
-
-"#label": {
-	font: {
-		fontSize: 12
-	}
+},
+'#txtUserName' : {
+	width : 200,
+	height : 50,
+	borderRadius : 10,
+	top : 50,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'UserName'
+},
+'#txtPwd' : {
+	width : 200,
+	height : 50,
+	borderRadius : 10,
+	top : 20,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText : 'Password',
+	passwordMask : true
+},
+'#loginBtn' : {
+	width : 200,
+	height : 30,
+	title : 'Login',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+},
+'#createBtn' : {
+	width : 200,
+	height : 30,
+	title : 'New User?',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+},
+'#resetBtn' : {
+	width : 200,
+	height : 30,
+	title : 'Forget Password?',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
 }
