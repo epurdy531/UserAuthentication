@@ -13,6 +13,21 @@ function loginUser(){
     }
 	]);
 	
+	// Create an HTTP client the same way you always have
+	// but pass in the optional Security Manager that was created previously.
+	httpClient = Ti.Network.createHTTPClient({
+	    onload: function(e) {
+	        Ti.API.info("Received text: " + this.responseText);
+	    },
+	    onerror: function(e) {
+	        Ti.API.error(e.error);
+	    },
+	    timeout : 5000,
+	    // Set this property before calling the `open` method. 
+	    securityManager: securityManager
+	});
+	httpClient.open("GET","http://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp")
+	httpClient.send();
 
 }
 
