@@ -8,7 +8,7 @@ function loginUser(){
 	
 	var securityManager = https.createX509CertificatePinningSecurityManager([
     {
-        url: "http://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
+        url: "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
         serverCertificate: "CGA.der" // X.509 certificate in DER format to verify the server's identity'
     }
 	]);
@@ -26,7 +26,7 @@ function loginUser(){
 	    // Set this property before calling the `open` method. 
 	    securityManager: securityManager
 	});
-	httpClient.open("GET","http://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp");
+	httpClient.open("GET","https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp");
 	httpClient.send();
 
 }
