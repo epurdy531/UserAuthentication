@@ -1,0 +1,13 @@
+<Alloy>
+	<Window class="container">
+		<TextField id="txtEmail"></TextField>
+		<TextField id="txtFname"></TextField>
+		<TextField id="txtLname"></TextField>
+		<TextField id="txtNewUserName"></TextField>
+		<TextField id="txtNewPwd"></TextField>
+		<TextField id="txtNewPwdVerify"></TextField>
+		<Button id="loginBtn" onClick="createUser"></Button>
+		<Button id="backButton" onClick="goBack"></Button>
+	</Window>
+
+</Alloy>
