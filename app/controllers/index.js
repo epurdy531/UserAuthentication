@@ -7,10 +7,14 @@ function loginUser(){
 	
 	
 	var securityManager = https.createX509CertificatePinningSecurityManager([
-    {
-        url: "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
-        serverCertificate: "CGA.der" // X.509 certificate in DER format to verify the server's identity'
-    }
+	    {
+	        url: "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
+	        serverCertificate: "CGA.der" // X.509 certificate in DER format to verify the server's identity'
+	    },
+	    {
+	        url: "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
+	        serverCertificate: "coelm2.der" // X.509 certificate in DER format to verify the server's identity'
+	    }
 	]);
 	
 	// Create an HTTP client the same way you always have
@@ -26,7 +30,11 @@ function loginUser(){
 	    // Set this property before calling the `open` method. 
 	    securityManager: securityManager
 	});
+	httpClient.username($.txtUserName.value);
+		        Ti.API.info("Received username: " + $.txtUserName.value);
+	httpClient.password($.txtPwd.value);
 	httpClient.open("GET","https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp");
+
 	httpClient.send();
 
 }
