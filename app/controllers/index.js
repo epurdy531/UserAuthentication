@@ -1,26 +1,8 @@
 function loginUser(){
-		Ti.API.info("1");
-	//variable https gets the module appcelerator.https
-	var https = require("appcelerator.https");
-	
-	//function in the module called User.login
-	//checks if it is a valid user with the cloud service
-	
-	Ti.API.info("2");
-	var securityManager = https.createX509CertificatePinningSecurityManager([
-	    {
-	        url: "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp", //URL of the server to contact
-	        serverCertificate: "coelm2.der" // X.509 certificate in DER format to verify the server's identity'
-	    }
-	]);
-	
-	// Create an HTTP client the same way you always have
-	//but pass in the optional Security Manager that was created previously.
-	
-	
 	var httpClient = Ti.Network.createHTTPClient({
 	    onload: function(e) {
 	        Ti.API.info("Received text: " + this.responseText);
+	        welcomeUser();
 	    },
 	    onerror: function(e) {
 	        Ti.API.error("Error is: " + e.error);
@@ -31,7 +13,7 @@ function loginUser(){
 	});
 	var username = $.txtUserName.value;
 	var password = $.txtPwd.value;
-	var url = "http://www.leg.state.co.us/mobile/iLegislate.nsf/UnpMain.xsp";
+	//var url = "https://coelm2/TNdevelopment/mobile/EricaTest.nsf/HelloWorld.xsp";
 	authstr = 'Basic ' + Titanium.Utils.base64encode(username + ':' + password);
 	Ti.API.info(authstr);
 
@@ -40,12 +22,19 @@ function loginUser(){
 	
 	httpClient.open("GET","http://www.leg.state.co.us/mobile/EricaTestDB.nsf/Test.xsp");
 	httpClient.send();
-
+	Ti.App.myData = {
+		username: username
+	};
 
 }
 
 function openNewUser(){
 	var newWindow = Alloy.createController('newuser').getView();
+	newWindow.open();
+}
+
+function welcomeUser(){
+	var newWindow = Alloy.createController('welcomeUser').getView();
 	newWindow.open();
 }
 

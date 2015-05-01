@@ -1,0 +1,6 @@
+<Alloy>
+	<Window class="container">
+		<Button onClick="greetUser">Click!</Button>
+	</Window>
+
+</Alloy>
