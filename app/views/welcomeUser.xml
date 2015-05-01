@@ -1,6 +1,7 @@
 <Alloy>
 	<Window class="container">
-		<Button onClick="greetUser">Click!</Button>
+		<Button id="backButton" onClick="goBack"></Button>
+		<Button id="greetButton" onClick="greetUser"></Button>
 	</Window>
 
 </Alloy>

@@ -1,5 +1,5 @@
 function greetUser(){	
-	alert("Welcome, " + username + "!");
+	alert("Welcome, " + Ti.App.myUser + "!");
 }
 
 function goBack(){

@@ -2,3 +2,19 @@
 	backgroundColor: "white",
 	layout : 'vertical'
 }
+
+'#backButton' : {
+	width : 200,
+	height : 30,
+	title : 'Go Back',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+}
+
+'#greetButton' : {
+	width : 200,
+	height : 30,
+	title : 'Click, please!',
+	style: Ti.UI.iPhone.SystemButtonStyle,
+	top : 10
+}
