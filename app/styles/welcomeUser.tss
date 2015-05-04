@@ -6,7 +6,7 @@
 '#backButton' : {
 	width : 200,
 	height : 30,
-	title : 'Go Back',
+	title : '< Go Back',
 	style: Ti.UI.iPhone.SystemButtonStyle,
 	top : 10
 }
