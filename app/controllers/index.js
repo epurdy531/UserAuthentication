@@ -1,12 +1,7 @@
-//var securely = require('bencoding.securely');
-//Ti.API.info("Storing properties in keyChain (only on iOS) - Med Security Level");
-//	var	properties = securely.createProperties({
-//		identifier:username,
-//		secret : password,
-//		storageType:securely.PROPERTY_TYPE_KEYCHAIN,
-//		securityLevel:securely.PROPERTY_SECURE_LEVEL_MED
-//	});
-//Titanium.API.info('Identifier' + properties.getString('identifier'));
+var keychain = require('com.obscure.keychain');
+var keychainItem = keychain.createKeychainItem('server account', 'supersecretpassphrase');
+
+
 function loginUser(){
 	var username = $.txtUserName.value;
 	var password = $.txtPwd.value;	
@@ -24,11 +19,13 @@ function httpLogin(username, password){
 	        	//alert("Please enter valid credentials");
 	        // worked
 	        }else{
-		        Ti.App.myUser = username;
-		        Ti.App.Properties.setString('username',username);
-		        Ti.App.Properties.setString('password',password);
+	        	//NOTE passphrase is ignored on iOS
+
+	        	keychainItem.account = username;//storing username
+	        	keychainItem.valueData = password;//storing password
+
 		         welcomeUser();
-		         //alert("login worked!");
+		         alert("login worked!");
 				
 		       }
 	    },
@@ -60,8 +57,8 @@ function resetUser(){
 	newWindow.open();
 }
 
-if(Ti.App.Properties.getString('username')  && Ti.App.Properties.getString('password')){
-	httpLogin(Ti.App.Properties.getString('username'), Ti.App.Properties.getString('password') != "");
+if(keychainItem.account != '' && keychainItem.valueData != ''){
+	httpLogin(keychainItem.account, keychainItem.valueData);
 }else{
 $.index.open();
 };
