@@ -1,5 +1,7 @@
-var keychain = require('com.obscure.keychain');
-var keychainItem = keychain.createKeychainItem('server account', 'supersecretpassphrase');
+var securely = require('bencoding.securely');
+var properties = securely.createProperties({
+    secret:"sshh_dont_tell",
+});
 
 
 function loginUser(){
@@ -21,8 +23,8 @@ function httpLogin(username, password){
 	        }else{
 	        	//NOTE passphrase is ignored on iOS
 
-	        	keychainItem.account = username;//storing username
-	        	keychainItem.valueData = password;//storing password
+	        	properties.setString('username', username);//storing username
+	        	properties.setString('password', password);//storing password
 
 		         welcomeUser();
 		         alert("login worked!");
@@ -57,8 +59,8 @@ function resetUser(){
 	newWindow.open();
 }
 
-if(keychainItem.account != '' && keychainItem.valueData != ''){
-	httpLogin(keychainItem.account, keychainItem.valueData);
+if(properties.getString('username') != '' && properties.getString('password') != ''){
+	httpLogin(properties.getString('username'), properties.getString('password'));
 }else{
 $.index.open();
 };

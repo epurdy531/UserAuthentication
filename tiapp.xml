@@ -51,7 +51,7 @@
         <module platform="commonjs">ti.cloud</module>
         <module platform="android">appcelerator.https</module>
         <module platform="iphone">appcelerator.https</module>
-        <module platform="iphone">ti_keychain</module>
+        <module platform="iphone">bencoding.securely</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
