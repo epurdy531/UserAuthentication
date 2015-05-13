@@ -1,8 +1,8 @@
-#appname: UserAthentication
-#publisher: epeharda
-#url: http://userauthentication.coleg.com
-#image: appicon.png
-#appid: com.coleg.userauthentication
-#desc: undefined
-#type: ipad
-#guid: 7fa8635f-e240-4b86-9bbb-5d6f3c20d81a
+#appname:UserAthentication
+#publisher:epeharda
+#url:http://userauthentication.coleg.com
+#image:appicon.png
+#appid:gov.coleg.test
+#desc:undefined
+#type:ipad
+#guid:7fa8635f-e240-4b86-9bbb-5d6f3c20d81a

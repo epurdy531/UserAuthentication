@@ -1,5 +1,5 @@
 function greetUser(){	
-	alert("Welcome, " + Ti.App.myUser + "!");
+	alert("username: " + Ti.App.Properties.getString('username'));
 }
 
 function goBack(){
@@ -7,4 +7,6 @@ function goBack(){
 	newWindow.open();
 }
 
+//Ti.API.info("username: " + Ti.App.Properties.getString('username'));
+//Ti.API.info("password: " + Ti.App.Properties.getString('password'));
 $.welcomeUser.open();
