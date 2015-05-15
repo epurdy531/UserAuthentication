@@ -1,12 +1,20 @@
-var securely = require('bencoding.securely');
-var properties = securely.createProperties({
-    secret:"sshh_dont_tell",
-});
+var keychain = require('com.obscure.keychain');
+var userKeychainItem;
+var passKeychainItem;
 
+if(userKeychainItem && passKeychainItem){
+	userKeychainItem = keychain.createKeychainItem('username');
+	passKeychainItem = keychain.createKeychainItem('password');
+};
 
+Ti.API.info("username:  " + userKeychainItem.valueData);
+Ti.API.info("pw:  " + passKeychainItem.valueData);
+var username;
+var password;			    
+			    
 function loginUser(){
-	var username = $.txtUserName.value;
-	var password = $.txtPwd.value;	
+	username = $.txtUserName.value;
+	password = $.txtPwd.value;	
 	httpLogin(username,password);
 }
 
@@ -18,16 +26,20 @@ function httpLogin(username, password){
 	        if (this.responseText.indexOf("Server Login") > -1){
 	        	$.txtUserName.value = "";
 	        	$.txtPwd.value = "";
-	        	//alert("Please enter valid credentials");
+	        	alert("Please enter valid credentials");
 	        // worked
 	        }else{
-	        	//NOTE passphrase is ignored on iOS
-
-	        	properties.setString('username', username);//storing username
-	        	properties.setString('password', password);//storing password
-
-		         welcomeUser();
-		         alert("login worked!");
+				userKeychainItem.valueData = username; // username
+				passKeychainItem.valueData = password; // password
+				alert('credentials stored');
+				
+				Ti.App.Username = "";
+				Ti.API.info("***************");
+				Ti.API.info("username:  " + userKeychainItem.valueData);
+				Ti.API.info("***************");
+			    Ti.API.info("pw:  " + passKeychainItem.valueData);
+		        welcomeUser(userKeychainItem.valueData, passKeychainItem.valueData);
+		        alert("login worked!");
 				
 		       }
 	    },
@@ -59,8 +71,10 @@ function resetUser(){
 	newWindow.open();
 }
 
-if(properties.getString('username') != '' && properties.getString('password') != ''){
-	httpLogin(properties.getString('username'), properties.getString('password'));
+if(userKeychainItem.valueData && passKeychainItem.valueData){
+	alert("In IF statement!");
+	httpLogin(userKeychainItem.valueData, passKeychainItem.valueData);
 }else{
+		alert("In ELSE statement!");
 $.index.open();
 };

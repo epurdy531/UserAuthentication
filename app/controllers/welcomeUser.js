@@ -1,5 +1,5 @@
 function greetUser(){	
-	alert("username: " + Ti.App.Properties.getString('username'));
+	alert("Welcome!");
 }
 
 function goBack(){
