@@ -2,7 +2,7 @@ var keychain = require('com.obscure.keychain');
 var userKeychainItem;
 var passKeychainItem;
 
-if(userKeychainItem && passKeychainItem){
+if(!userKeychainItem && !passKeychainItem){
 	userKeychainItem = keychain.createKeychainItem('username');
 	passKeychainItem = keychain.createKeychainItem('password');
 };
@@ -38,7 +38,7 @@ function httpLogin(username, password){
 				Ti.API.info("username:  " + userKeychainItem.valueData);
 				Ti.API.info("***************");
 			    Ti.API.info("pw:  " + passKeychainItem.valueData);
-		        welcomeUser(userKeychainItem.valueData, passKeychainItem.valueData);
+		        welcomeUser();
 		        alert("login worked!");
 				
 		       }
@@ -71,10 +71,9 @@ function resetUser(){
 	newWindow.open();
 }
 
-if(userKeychainItem.valueData && passKeychainItem.valueData){
-	alert("In IF statement!");
-	httpLogin(userKeychainItem.valueData, passKeychainItem.valueData);
+if(userKeychainItem){
+	welcomeUser();
 }else{
-		alert("In ELSE statement!");
-$.index.open();
+	alert("In ELSE statement!");
+    $.index.open();
 };
