@@ -1,7 +1,10 @@
 <Alloy>
-	<Window class="container">
+	<NavigationWindow id="win3">
 		<Button id="backButton" onClick="goBack"></Button>
-		<Button id="greetButton" onClick="greetUser"></Button>
-	</Window>
+		<Window id="win2" class="container">
+
+			<Button id="greetButton" onClick="greetUser"></Button>
+		</Window>
+	</NavigationWindow>
 
 </Alloy>

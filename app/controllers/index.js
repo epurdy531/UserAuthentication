@@ -36,8 +36,9 @@ function httpLogin(username, password){
 				Ti.App.Username = "";
 				Ti.API.info("***************");
 				Ti.API.info("username:  " + userKeychainItem.valueData);
+				Ti.App.Username = userKeychainItem.valueData;
 				Ti.API.info("***************");
-			    Ti.API.info("pw:  " + passKeychainItem.valueData);
+			    //Ti.API.info("pw:  " + passKeychainItem.valueData);
 		        welcomeUser();
 		        alert("login worked!");
 				
@@ -62,8 +63,9 @@ function openNewUser(){
 }
 
 function welcomeUser(){
-	var newWindow = Alloy.createController('welcomeUser').getView();
-	newWindow.open();
+	alert("in welcome user");
+	    var win3 = Alloy.createController('welcomeUser').getView();
+    $.win1.openWindow(win3);
 }
 
 function resetUser(){
@@ -71,9 +73,11 @@ function resetUser(){
 	newWindow.open();
 }
 
-if(userKeychainItem){
+alert(userKeychainItem.valueData);
+if(userKeychainItem.valueData){
+	alert("in IF statement!");
 	welcomeUser();
 }else{
 	alert("In ELSE statement!");
-    $.index.open();
+    $.win1.open();
 };

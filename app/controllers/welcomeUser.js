@@ -3,12 +3,12 @@
 
 
 function greetUser(){	
-	alert("Welcome!");
+	alert("Welcome, " + Ti.App.Username + "!");
+	//alert("Keychain User:" + userKeychainItem.valueData);
 }
 
 function goBack(){
-	var newWindow = Alloy.createController('index').getView();
-	newWindow.open();
+	 $.win3.close();
 }
 
-$.welcomeUser.open();
+$.win3.open();
